@@ -149,7 +149,11 @@
             lastupdate.innerText = `as of ${data.lastupdate.slice(13)}`
 
             if (window.location.hash.match(/liter=(\d+\.{0,1}\d*)/)) {
-                liter = Number(window.location.hash.match(/liter=(\d+\.{0,1}\d*)/)[1])
+                let temp = window.location.hash.match(/liter=(\d+\.{0,1}\d*)/)[1]
+
+                if (temp > 0) {
+                    liter = temp
+                }
             }
 
             tabletitle.innerText = `Price per ${liter > 1 ? `${liter} ` : ''}liter${liter > 1 ? 's' : ''}`
